@@ -4,13 +4,13 @@ def treatWords(words):
         for col in line:
             for word in col:
                 word = treatWord(word)
-                treatedWords.append(word)
+                treatedWords.append(word.lower())
     return treatedWords
 
 
 
 def treatWord(word):
-    chars = ['<i>', '</i>', '.', ',', '?', '-', '"', '[', ']']
+    chars = ['<i>', '</i>', '.', ',', '?', '-', '"', '[', ']', '!']
     for char in chars:
         if char in word:
             word = word.replace(char, '')
