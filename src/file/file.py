@@ -25,6 +25,9 @@ def createFile(name, path, content):
     for line in content:
         file.write(line + '\n')
 
+def appendFile(content, path, name):
+    file = open(path + name, 'a')
+    file.write(content + '\n')
 
 def fileName(counter):
     if counter < 10:
