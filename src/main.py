@@ -1,5 +1,7 @@
+import csv
 from file.file import openFile, openFiles, printFile, createFile, appendFile
 from treat.treat import treatWord, treatFile, treatWords
+
 
 words = []
 
@@ -15,11 +17,14 @@ for word in words:
     else:
         wordsDic[word] = 1
 
-createFile('words.txt', '../data/', '')
+createFile('words.csv', '../data/', '')
 
-for word in wordsDic:
-    line = 'Word: ' + word + ' - Used: ' + str(wordsDic[word])
-    appendFile(line, '../data/', 'words.txt')
+with open('../data/words.csv', 'w') as data:
+    writer = csv.writer(data)
+    writer.writerow(('Word', 'Usage'))
+    for word in wordsDic:
+        writer.writerow((word, wordsDic[word]))
 
+    
 
 
