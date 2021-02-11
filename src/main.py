@@ -1,7 +1,7 @@
 import csv
 from file.file import openFile, openFiles, printFile, createFile, appendFile
 from treat.treat import treatWord, treatFile, treatWords
-
+import pandas as pd
 
 words = []
 
@@ -24,6 +24,12 @@ with open('../data/words.csv', 'w') as data:
     writer.writerow(('Word', 'Usage'))
     for word in wordsDic:
         writer.writerow((word, wordsDic[word]))
+
+
+table = pd.read_csv('../data/words.csv')
+
+print(table.tail(100))
+
 
     
 
